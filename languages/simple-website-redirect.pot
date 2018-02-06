@@ -1,0 +1,78 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-06 16:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: SimpleWebsiteRedirect.php:98 SimpleWebsiteRedirect.php:209
+msgid "Settings"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:105
+msgid "Redirect URL"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:119
+msgid "Redirect Type"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:126
+msgid "Permanent"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:127
+msgid "Temporary"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:134
+msgid "Redirect Status"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:141
+msgid "Disabled"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:142
+msgid "Enabled"
+msgstr ""
+
+#. Name of the plugin
+#: SimpleWebsiteRedirect.php:156
+msgid "Simple Website Redirect"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:157
+msgid "Website Redirect"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:177
+msgid "Settings Updated"
+msgstr ""
+
+#: SimpleWebsiteRedirect.php:190
+msgid "Save Settings"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"A simple plugin designed to redirect an entire website (except the WordPress "
+"admin) to another website."
+msgstr ""
+
+#. Author of the plugin
+msgid "Micah Wood"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wpscholar.com"
+msgstr ""

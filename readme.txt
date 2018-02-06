@@ -1,9 +1,9 @@
 === Simple Website Redirect ===
 Contributors: woodent
 Donate link: https://www.paypal.me/wpscholar
-Tags: site, website, redirect, redirection, forwarding
+Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
-Tested up to: 4.9.2
+Tested up to: 4.9.3
 Stable tag: 1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -60,4 +60,3 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 * Initial commit
 
 == Upgrade Notice ==
-
