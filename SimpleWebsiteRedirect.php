@@ -170,15 +170,6 @@ class SimpleWebsiteRedirect {
 			return;
 		}
 
-		if ( isset( $_GET['settings-updated'] ) ) {
-			add_settings_error(
-				self::PAGE,
-				'simple_website_redirect_settings_updated',
-				esc_html__( 'Settings Updated', 'simple-website-redirect' ),
-				'updated'
-			);
-		}
-
 		settings_errors( self::PAGE );
 		?>
         <div class="wrap">
