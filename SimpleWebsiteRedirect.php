@@ -39,7 +39,9 @@ class SimpleWebsiteRedirect {
 	 * Primary functionality - handles website redirect based on current configuration.
 	 */
 	public static function _init() {
-		if ( ! is_admin() ) {
+		global $pagenow;
+		/* Allow requests to /wp-admin and wp-login so that admins can attempt to login */
+		if ( !is_admin() && $pagenow !== 'wp-login.php') {
 			$redirect_enabled = wp_validate_boolean( get_option( 'simple_website_redirect_status', false ) );
 			$redirect_url = self::sanitize_redirect_url( get_option( 'simple_website_redirect_url' ) );
 			if ( $redirect_enabled && ! empty( $redirect_url ) ) {
