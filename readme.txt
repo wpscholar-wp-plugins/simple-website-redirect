@@ -3,8 +3,9 @@ Contributors: woodent
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
-Tested up to: 4.9.3
-Stable tag: 1.0
+Tested up to: 4.9.8
+Stable tag: 1.0.2
+Requires PHP: 5.2.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -56,7 +57,20 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix bug where redirect URL cannot contain a path
+* Fix bug where redirect URL is sanitized when redirect is disabled.
+
+= 1.0.1 =
+* Fix bug where redirect occurred when on login page.
+
 = 1.0 =
 * Initial commit
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+* Fixes bug where redirect occurred when on login page.
+
+= 1.0.2 =
+* You can now provide a URL path, not just a domain for redirects.
