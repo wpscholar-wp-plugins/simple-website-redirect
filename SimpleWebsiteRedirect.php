@@ -64,7 +64,11 @@ class SimpleWebsiteRedirect {
 		$scheme = parse_url( $url, PHP_URL_SCHEME );
 		$host = untrailingslashit( parse_url( $url, PHP_URL_HOST ) );
 		if ( $scheme && $host ) {
-			$clean_url = "$scheme://$host";
+			$current_host = untrailingslashit( parse_url( home_url(), PHP_URL_HOST ) );
+			if ( $host !== $current_host ) {
+				$path = (string) parse_url( $url, PHP_URL_PATH );
+				$clean_url = "{$scheme}://{$host}{$path}";
+			}
 		}
 
 		return $clean_url;
