@@ -43,11 +43,13 @@ class SimpleWebsiteRedirect {
 		// Allow requests to /wp-admin and wp-login so that admins can attempt to login
 		if ( $pagenow !== 'wp-login.php' && ! is_admin() ) {
 			$redirect_enabled = wp_validate_boolean( get_option( 'simple_website_redirect_status', false ) );
-			$redirect_url = self::sanitize_redirect_url( get_option( 'simple_website_redirect_url' ) );
-			if ( $redirect_enabled && ! empty( $redirect_url ) ) {
-				$redirect_type = self::sanitize_redirect_type( get_option( 'simple_website_redirect_type' ) );
-				wp_redirect( $redirect_url . $_SERVER['REQUEST_URI'], $redirect_type );
-				exit;
+			if ( $redirect_enabled ) {
+				$redirect_url = self::sanitize_redirect_url( get_option( 'simple_website_redirect_url' ) );
+				if ( ! empty( $redirect_url ) ) {
+					$redirect_type = self::sanitize_redirect_type( get_option( 'simple_website_redirect_type' ) );
+					wp_redirect( $redirect_url . $_SERVER['REQUEST_URI'], $redirect_type );
+					exit;
+				}
 			}
 		}
 	}
