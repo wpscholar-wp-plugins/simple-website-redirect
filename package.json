@@ -9,9 +9,9 @@
         "url": "https://github.com/wpscholar/simple-website-redirect.git"
     },
     "dependencies": {
-        "del": "^2.2.2",
+        "del": "^3.0.0",
         "gulp": "^3.9.1",
-        "gulp-shell": "^0.4.3"
+        "gulp-shell": "^0.6.5"
     },
     "scripts": {
         "post-install": "npm prune"
