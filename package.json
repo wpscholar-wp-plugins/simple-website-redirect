@@ -14,6 +14,8 @@
         "gulp-shell": "^0.6.5"
     },
     "scripts": {
-        "post-install": "npm prune"
+        "checkout": "gulp svn:checkout",
+        "post-install": "npm prune",
+        "stage": "gulp svn:stage"
     }
 }
