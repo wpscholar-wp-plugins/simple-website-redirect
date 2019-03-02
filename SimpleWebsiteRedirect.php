@@ -36,6 +36,8 @@ class SimpleWebsiteRedirect {
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 99 );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, 'plugin_action_links' ) );
+
+		add_filter( 'allowed_redirect_hosts', array( __CLASS__, 'allowed_redirect_hosts' ) );
 	}
 
 	/**
@@ -49,8 +51,12 @@ class SimpleWebsiteRedirect {
 			if ( $redirect_enabled ) {
 				$redirect_url = self::sanitize_redirect_url( get_option( 'simple_website_redirect_url' ) );
 				if ( ! empty( $redirect_url ) ) {
-					$redirect_type = self::sanitize_redirect_type( get_option( 'simple_website_redirect_type' ) );
-					wp_safe_redirect( $redirect_url . $_SERVER['REQUEST_URI'], $redirect_type );
+					$redirect_type    = self::sanitize_redirect_type( get_option( 'simple_website_redirect_type' ) );
+					$redirect_to_root = filter_var( get_option( 'simple_website_redirect_to_root', false ), FILTER_VALIDATE_BOOLEAN );
+					if ( ! $redirect_to_root ) {
+						$redirect_url .= $_SERVER['REQUEST_URI'];
+					}
+					wp_safe_redirect( $redirect_url, $redirect_type );
 					exit;
 				}
 			}
@@ -103,6 +109,7 @@ class SimpleWebsiteRedirect {
 		register_setting( self::PAGE, 'simple_website_redirect_url', array( __CLASS__, 'sanitize_redirect_url' ) );
 		register_setting( self::PAGE, 'simple_website_redirect_type', array( __CLASS__, 'sanitize_redirect_type' ) );
 		register_setting( self::PAGE, 'simple_website_redirect_status', 'wp_validate_boolean' );
+		register_setting( self::PAGE, 'simple_website_redirect_to_root', 'wp_validate_boolean' );
 
 		add_settings_section(
 			'settings',
@@ -155,6 +162,21 @@ class SimpleWebsiteRedirect {
 			]
 		);
 
+		add_settings_field(
+			'simple_website_redirect_to_root',
+			esc_html__( 'Preserve URL Paths', 'simple-website-redirect' ),
+			array( __CLASS__, 'select_field' ),
+			self::PAGE,
+			'settings',
+			[
+				'name'    => 'simple_website_redirect_to_root',
+				'options' => array(
+					0 => esc_html__( 'Yes (Recommended)', 'simple-website-redirect' ),
+					1 => esc_html__( 'No (Redirects all pages to the homepage)', 'simple-website-redirect' ),
+				),
+			]
+		);
+
 	}
 
 	/**
@@ -183,16 +205,16 @@ class SimpleWebsiteRedirect {
 
 		settings_errors( self::PAGE );
 		?>
-        <div class="wrap">
-            <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-            <form action="options.php" method="post">
-				<?php
-				do_settings_sections( self::PAGE );
-				settings_fields( self::PAGE );
-				submit_button( esc_html__( 'Save Settings', 'simple-website-redirect' ) );
-				?>
-            </form>
-        </div>
+			<div class="wrap">
+				<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+				<form action="options.php" method="post">
+					<?php
+					do_settings_sections( self::PAGE );
+					settings_fields( self::PAGE );
+					submit_button( esc_html__( 'Save Settings', 'simple-website-redirect' ) );
+					?>
+				</form>
+			</div>
 		<?php
 	}
 
@@ -210,6 +232,7 @@ class SimpleWebsiteRedirect {
 			esc_url( admin_url( 'options-general.php?page=' . self::PAGE ) ),
 			esc_html__( 'Settings', 'simple-website-redirect' )
 		);
+
 		$links[] = $settings_link;
 
 		return $links;
@@ -231,7 +254,6 @@ class SimpleWebsiteRedirect {
 			esc_attr( $name ),
 			esc_attr( get_option( $name, '' ) ),
 			esc_attr( isset( $args['placeholder'] ) ? $args['placeholder'] : '' )
-
 		);
 	}
 
@@ -242,25 +264,35 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function select_field( array $args ) {
 
-		$name = isset( $args['name'] ) ? $args['name'] : '';
+		$name    = isset( $args['name'] ) ? $args['name'] : '';
 		$options = isset( $args['options'] ) ? (array) $args['options'] : [];
-		$value = get_option( $name, '' );
+		$value   = get_option( $name, '' );
 
-		$opening_tag = sprintf( '<select name="%s">', esc_attr( $name ) ) . PHP_EOL;
+		echo sprintf( '<select name="%s">', esc_attr( $name ) ) . PHP_EOL;
 
-		$option_elements = array();
 		foreach ( $options as $option_value => $option_label ) {
-			$option_elements[] = sprintf(
+			printf(
 				'<option value="%s"%s>%s</option>',
 				esc_attr( $option_value ),
 				selected( $option_value, $value, false ),
 				esc_html( $option_label )
 			);
+			echo PHP_EOL;
 		}
+		echo '</select>' . PHP_EOL;
+	}
 
-		$closing_tag = '</select>' . PHP_EOL;
-
-		echo $opening_tag . implode( PHP_EOL, $option_elements ) . $closing_tag;
+	/**
+	 * Hook to register the provided URL as an allowed redirect host.
+	 *
+	 * @param array $hosts Allowed redirect hosts
+	 */
+	public static function allowed_redirect_hosts( $hosts ) {
+		$url = get_option( 'simple_website_redirect_url' );
+		if ( $url ) {
+			$hosts[] = wp_parse_url( $url, PHP_URL_HOST );
+		}
+		return $hosts;
 	}
 
 }
