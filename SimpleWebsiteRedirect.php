@@ -66,6 +66,7 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function sanitize_redirect_url( $url ) {
 		$clean_url = '';
+		$scheme    = wp_parse_url( $url, PHP_URL_SCHEME );
 		$host      = untrailingslashit( wp_parse_url( $url, PHP_URL_HOST ) );
 		if ( $scheme && $host ) {
 			$current_host = untrailingslashit( wp_parse_url( home_url(), PHP_URL_HOST ) );
