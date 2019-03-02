@@ -18,7 +18,9 @@
 class SimpleWebsiteRedirect {
 
 	/**
-	 * @var string Plugin admin menu page slug.
+	 * Plugin admin menu page slug.
+	 *
+	 * @var string
 	 */
 	const PAGE = 'simple-website-redirect';
 
@@ -57,7 +59,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Sanitize redirect URL
 	 *
-	 * @param string $url
+	 * @param string $url The redirect URL.
 	 *
 	 * @return string
 	 */
@@ -79,7 +81,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Sanitize redirect type
 	 *
-	 * @param int $type
+	 * @param int $type Redirect type; can be 301 or 302.
 	 *
 	 * @return int
 	 */
@@ -196,7 +198,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Add settings link to plugin on plugin list in the WP admin.
 	 *
-	 * @param array $links
+	 * @param array $links Existing plugin action links.
 	 *
 	 * @return array
 	 */
@@ -215,7 +217,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Outputs an input field.
 	 *
-	 * @param array $args
+	 * @param array $args Input field properties.
 	 */
 	public static function _input_field( array $args ) {
 
@@ -235,7 +237,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Outputs a select field.
 	 *
-	 * @param array $args
+	 * @param array $args Select field properties.
 	 */
 	public static function _select_field( array $args ) {
 
