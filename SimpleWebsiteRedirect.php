@@ -65,12 +65,11 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function sanitize_redirect_url( $url ) {
 		$clean_url = '';
-		$scheme = parse_url( $url, PHP_URL_SCHEME );
-		$host = untrailingslashit( parse_url( $url, PHP_URL_HOST ) );
+		$host      = untrailingslashit( wp_parse_url( $url, PHP_URL_HOST ) );
 		if ( $scheme && $host ) {
-			$current_host = untrailingslashit( parse_url( home_url(), PHP_URL_HOST ) );
+			$current_host = untrailingslashit( wp_parse_url( home_url(), PHP_URL_HOST ) );
 			if ( $host !== $current_host ) {
-				$path = (string) parse_url( $url, PHP_URL_PATH );
+				$path      = (string) wp_parse_url( $url, PHP_URL_PATH );
 				$clean_url = "{$scheme}://{$host}{$path}";
 			}
 		}
