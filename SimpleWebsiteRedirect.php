@@ -1,8 +1,7 @@
 <?php
-
-/*
+/**
  * Plugin Name: Simple Website Redirect
- * Plugin URI:	https://wpscholar.com/wordpress-plugins/simple-website-redirect/
+ * Plugin URI:  https://wpscholar.com/wordpress-plugins/simple-website-redirect/
  * Description: A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.
  * Version:     1.0.2
  * Author:      Micah Wood
@@ -10,6 +9,8 @@
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-website-redirect
+ *
+ * @package simple-website-redirect
  */
 
 /**
