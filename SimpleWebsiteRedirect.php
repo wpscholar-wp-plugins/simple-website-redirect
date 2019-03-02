@@ -49,7 +49,7 @@ class SimpleWebsiteRedirect {
 				$redirect_url = self::sanitize_redirect_url( get_option( 'simple_website_redirect_url' ) );
 				if ( ! empty( $redirect_url ) ) {
 					$redirect_type = self::sanitize_redirect_type( get_option( 'simple_website_redirect_type' ) );
-					wp_redirect( $redirect_url . $_SERVER['REQUEST_URI'], $redirect_type );
+					wp_safe_redirect( $redirect_url . $_SERVER['REQUEST_URI'], $redirect_type );
 					exit;
 				}
 			}
