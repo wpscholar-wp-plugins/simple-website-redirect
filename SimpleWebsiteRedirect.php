@@ -32,6 +32,9 @@ class SimpleWebsiteRedirect {
 
 		load_plugin_textdomain( 'simple-website-redirect', false, __DIR__ . '/languages' );
 
+		add_action( 'init', array( __CLASS__, 'init' ) );
+		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 99 );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, 'plugin_action_links' ) );
 	}
 
