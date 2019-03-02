@@ -32,16 +32,13 @@ class SimpleWebsiteRedirect {
 
 		load_plugin_textdomain( 'simple-website-redirect', false, __DIR__ . '/languages' );
 
-		add_action( 'init', array( __CLASS__, '_init' ) );
-		add_action( 'admin_init', array( __CLASS__, '_admin_init' ) );
-		add_action( 'admin_menu', array( __CLASS__, '_admin_menu' ), 99 );
-		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, '_plugin_action_links' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, 'plugin_action_links' ) );
 	}
 
 	/**
 	 * Primary functionality - handles website redirect based on current configuration.
 	 */
-	public static function _init() {
+	public static function init() {
 		global $pagenow;
 		// Allow requests to /wp-admin and wp-login so that admins can attempt to login
 		if ( 'wp-login.php' !== $pagenow && ! is_admin() ) {
@@ -97,7 +94,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Register our settings.
 	 */
-	public static function _admin_init() {
+	public static function admin_init() {
 
 		register_setting( self::PAGE, 'simple_website_redirect_url', array( __CLASS__, 'sanitize_redirect_url' ) );
 		register_setting( self::PAGE, 'simple_website_redirect_type', array( __CLASS__, 'sanitize_redirect_type' ) );
@@ -113,7 +110,7 @@ class SimpleWebsiteRedirect {
 		add_settings_field(
 			'simple_website_redirect_url',
 			esc_html__( 'Redirect URL', 'simple-website-redirect' ),
-			array( __CLASS__, '_input_field' ),
+			array( __CLASS__, 'input_field' ),
 			self::PAGE,
 			'settings',
 			[
@@ -127,7 +124,7 @@ class SimpleWebsiteRedirect {
 		add_settings_field(
 			'simple_website_redirect_type',
 			esc_html__( 'Redirect Type', 'simple-website-redirect' ),
-			array( __CLASS__, '_select_field' ),
+			array( __CLASS__, 'select_field' ),
 			self::PAGE,
 			'settings',
 			[
@@ -142,7 +139,7 @@ class SimpleWebsiteRedirect {
 		add_settings_field(
 			'simple_website_redirect_status',
 			esc_html__( 'Redirect Status', 'simple-website-redirect' ),
-			array( __CLASS__, '_select_field' ),
+			array( __CLASS__, 'select_field' ),
 			self::PAGE,
 			'settings',
 			[
@@ -159,7 +156,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Add our custom admin menu page.
 	 */
-	public static function _admin_menu() {
+	public static function admin_menu() {
 
 		add_submenu_page(
 			'options-general.php',
@@ -167,14 +164,14 @@ class SimpleWebsiteRedirect {
 			esc_html__( 'Website Redirect', 'simple-website-redirect' ),
 			'manage_options',
 			self::PAGE,
-			array( __CLASS__, '_render_page' )
+			array( __CLASS__, 'render_page' )
 		);
 	}
 
 	/**
 	 * Render admin page.
 	 */
-	public static function _render_page() {
+	public static function render_page() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
@@ -202,7 +199,7 @@ class SimpleWebsiteRedirect {
 	 *
 	 * @return array
 	 */
-	public static function _plugin_action_links( $links ) {
+	public static function plugin_action_links( $links ) {
 
 		$settings_link = sprintf(
 			'<a href="%s">%s</a>',
@@ -219,7 +216,7 @@ class SimpleWebsiteRedirect {
 	 *
 	 * @param array $args Input field properties.
 	 */
-	public static function _input_field( array $args ) {
+	public static function input_field( array $args ) {
 
 		$name = isset( $args['name'] ) ? $args['name'] : '';
 
@@ -239,7 +236,7 @@ class SimpleWebsiteRedirect {
 	 *
 	 * @param array $args Select field properties.
 	 */
-	public static function _select_field( array $args ) {
+	public static function select_field( array $args ) {
 
 		$name = isset( $args['name'] ) ? $args['name'] : '';
 		$options = isset( $args['options'] ) ? (array) $args['options'] : [];
