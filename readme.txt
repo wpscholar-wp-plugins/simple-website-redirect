@@ -1,5 +1,5 @@
 === Simple Website Redirect ===
-Contributors: woodent
+Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
