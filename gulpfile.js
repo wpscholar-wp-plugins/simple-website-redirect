@@ -10,6 +10,7 @@ let config = {
             '!**/screenshot-*.png',
             '!**/screenshot-*.jpg',
             '!**/screenshot-*.gif',
+            '!**/icon-*.png',
             '!**/svn',
             '!**/svn/**',
             '!**/readme.md',
@@ -21,6 +22,9 @@ let config = {
             '!**/bower_components',
             '!**/bower_components/**',
             '!**/gulpfile.js',
+            '!**/composer.*',
+            '!**/vendor',
+            '!**/vendor/**',
         ],
         dest: './svn/trunk',
         clean: './svn/trunk/**/*'
