@@ -1,0 +1,18 @@
+{
+  "name": "wpscholar/simple-website-redirect",
+  "description": "A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Micah Wood",
+      "email": "micah@wpscholar.com"
+    }
+  ],
+  "config": {
+    "optimize-autoloader": true
+  },
+  "require": {
+    "wpscholar/url": "^1.1"
+  }
+}
