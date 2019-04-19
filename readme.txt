@@ -3,9 +3,9 @@ Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
-Tested up to: 5.1
-Stable tag: 1.1
-Requires PHP: 5.2.4
+Tested up to: 5.1.1
+Stable tag: 1.2
+Requires PHP: 5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -36,7 +36,7 @@ Note: Redirection type can either be 'Temporary' or 'Permanent'. It is recommend
 If you don't meet the below requirements, I highly recommend you upgrade your WordPress install or move to a web host that supports a more recent version of PHP.
 
 * Requires WordPress version 4.0 or greater
-* Requires PHP version 5.2.4 or greater ( PHP version 5.2.4 is required to run WordPress version 4.0 )
+* Requires PHP version 5.4 or greater
 
 = The Easy Way =
 
@@ -54,8 +54,12 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 == Screenshots ==
 
 1. Just enter the URL you want to redirect the site to, set the desired redirection type, set the status to 'Enabled' and save!
+2. Advanced settings let you configure exclusions to redirects on the front end. Very useful if you still need to use a front-end page builder while redirecting everything else.
 
 == Changelog ==
+
+= 1.2 =
+* Added the ability to add exclude paths and exclude parameters which, when set, will prevent redirects from occuring if a match with one of these exclusions is found.
 
 = 1.1 =
 * Updated code to comply with strict coding standards.
@@ -81,3 +85,6 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 = 1.1 =
 * You now have the option to preserve URLs or redirect all pages to the homepage.
+
+= 1.2 =
+* Added the ability to configure exceptions to the site-wide redirect rules.
