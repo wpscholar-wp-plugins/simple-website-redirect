@@ -87,7 +87,10 @@ class SimpleWebsiteRedirect {
 	 * @return bool
 	 */
 	public static function should_redirect() {
-		return (bool) apply_filters( 'simple_website_redirect_should_redirect', true, self::$url );
+		global $pagenow;
+		$should_redirect = 'wp-login.php' !== $pagenow && ! is_admin();
+
+		return (bool) apply_filters( 'simple_website_redirect_should_redirect', $should_redirect, self::$url );
 	}
 
 	/**
