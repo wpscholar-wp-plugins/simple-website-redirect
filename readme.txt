@@ -64,7 +64,7 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 * Fix minor issue where some urls would have double slashes at the beginning of the path.
 
 = 1.2 =
-* Added the ability to add exclude paths and exclude parameters which, when set, will prevent redirects from occuring if a match with one of these exclusions is found.
+* Added the ability to add exclude paths and exclude parameters which, when set, will prevent redirects from occurring if a match with one of these exclusions is found.
 
 = 1.1 =
 * Updated code to comply with strict coding standards.
