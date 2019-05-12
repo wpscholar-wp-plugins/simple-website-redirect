@@ -135,7 +135,7 @@ class SimpleWebsiteRedirect {
 	 * @return array
 	 */
 	public static function get_excluded_query_params() {
-		return self::parse_query_params( get_option( 'simple_website_redirect_exclude_query_params', '' ) );
+		return self::parse_query_params( get_option( 'simple_website_redirect_exclude_query_params', '' ) . ',simple-website-redirect' );
 	}
 
 	/**
