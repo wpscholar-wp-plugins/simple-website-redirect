@@ -144,7 +144,7 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function filter_redirect_url( $url ) {
 		if ( self::should_preserve_url_paths() ) {
-			$url .= $_SERVER['REQUEST_URI'];
+			$url = untrailingslashit( $url ) . $_SERVER['REQUEST_URI'];
 		}
 
 		return $url;
@@ -381,8 +381,8 @@ class SimpleWebsiteRedirect {
 			self::PAGE,
 			'settings',
 			[
-				'name'    => 'simple_website_redirect_type',
-				'options' => array(
+				'name'      => 'simple_website_redirect_type',
+				'options'   => array(
 					301 => __( 'Permanent', 'simple-website-redirect' ),
 					302 => __( 'Temporary', 'simple-website-redirect' ),
 				),
