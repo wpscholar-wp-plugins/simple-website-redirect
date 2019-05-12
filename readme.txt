@@ -3,8 +3,8 @@ Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
-Tested up to: 5.1.1
-Stable tag: 1.2
+Tested up to: 5.2
+Stable tag: 1.2.1
 Requires PHP: 5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -58,6 +58,11 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 == Changelog ==
 
+= 1.2.1 =
+* Added the ability to bypass any redirect by appending the `?simple-website-redirect` query string.
+* Ensure that redirects are prevented for admin and login pages regardless of where WordPress is installed.
+* Fix minor issue where some urls would have double slashes at the beginning of the path.
+
 = 1.2 =
 * Added the ability to add exclude paths and exclude parameters which, when set, will prevent redirects from occuring if a match with one of these exclusions is found.
 
@@ -88,3 +93,6 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 = 1.2 =
 * Added the ability to configure exceptions to the site-wide redirect rules.
+
+= 1.2.1 =
+* Bug fixes to ensure proper handling of redirects across all use cases.
