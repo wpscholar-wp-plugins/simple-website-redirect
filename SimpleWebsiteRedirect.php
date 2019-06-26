@@ -309,14 +309,16 @@ class SimpleWebsiteRedirect {
 	public static function sanitize_redirect_url( $url ) {
 		$clean_url = '';
 
-		$redirect_url = new Url( $url );
-		$home_url     = new Url( home_url() );
+		if ( $url ) {
+			$redirect_url = new Url( $url );
+			$home_url     = new Url( home_url() );
 
-		$redirect = untrailingslashit( $redirect_url->host . $redirect_url->path );
-		$home     = untrailingslashit( $home_url->host . $home_url->path );
+			$redirect = untrailingslashit( $redirect_url->host . $redirect_url->path );
+			$home     = untrailingslashit( $home_url->host . $home_url->path );
 
-		if ( false === strpos( $home, $redirect ) ) {
-			$clean_url = "{$redirect_url->scheme}://{$redirect_url->host}{$redirect_url->path}";
+			if ( false === strpos( $home, $redirect ) ) {
+				$clean_url = "{$redirect_url->scheme}://{$redirect_url->host}{$redirect_url->path}";
+			}
 		}
 
 		return $clean_url;
