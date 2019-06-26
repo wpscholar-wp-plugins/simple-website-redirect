@@ -147,7 +147,12 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function filter_redirect_url( $url ) {
 		if ( $url && self::should_preserve_url_paths() ) {
-			$url = untrailingslashit( $url ) . $_SERVER['REQUEST_URI'];
+			$home_url = new Url( home_url() );
+			$find     = trailingslashit( $home_url->path );
+			$replace  = '/';
+			$pattern  = '#^' . preg_quote( $find, '/' ) . '#';
+			$path     = preg_replace( $pattern, $replace, trailingslashit( $_SERVER['REQUEST_URI'] ), 1 );
+			$url      = untrailingslashit( $url ) . $path;
 		}
 
 		return $url;
