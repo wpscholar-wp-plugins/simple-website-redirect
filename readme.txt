@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
 Tested up to: 5.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires PHP: 5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -58,6 +58,11 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 == Changelog ==
 
+= 1.2.2 =
+* Make sure the URL path associated with the WordPress home URL doesn't get appended to the URL when preserving URL paths.
+* Properly sanitize the redirect URL to prevent redirect loops while ensuring compatibility with sites installed in a subdirectory.
+* Fixed issue where an empty redirect URL could result in a non-empty redirect URL after filtering.
+
 = 1.2.1 =
 * Added the ability to bypass any redirect by appending the `?simple-website-redirect` query string.
 * Ensure that redirects are prevented for admin and login pages regardless of where WordPress is installed.
@@ -96,3 +101,6 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 = 1.2.1 =
 * Bug fixes to ensure proper handling of redirects across all use cases.
+
+= 1.2.2 =
+* Bug fixes to ensure proper handling of redirects for subdirectory installs under the same domain.
