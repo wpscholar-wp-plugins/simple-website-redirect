@@ -10,8 +10,8 @@
     },
     "dependencies": {
         "del": "^3.0.0",
-        "gulp": "^3.9.1",
-        "gulp-shell": "^0.6.5"
+        "gulp": "^4.0.2",
+        "shelljs": "^0.8.3"
     },
     "scripts": {
         "checkout": "gulp svn:checkout",
