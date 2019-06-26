@@ -146,7 +146,7 @@ class SimpleWebsiteRedirect {
 	 * @return string
 	 */
 	public static function filter_redirect_url( $url ) {
-		if ( self::should_preserve_url_paths() ) {
+		if ( $url && self::should_preserve_url_paths() ) {
 			$url = untrailingslashit( $url ) . $_SERVER['REQUEST_URI'];
 		}
 
