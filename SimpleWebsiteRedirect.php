@@ -303,14 +303,15 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function sanitize_redirect_url( $url ) {
 		$clean_url = '';
-		$scheme    = wp_parse_url( $url, PHP_URL_SCHEME );
-		$host      = untrailingslashit( wp_parse_url( $url, PHP_URL_HOST ) );
-		if ( $scheme && $host ) {
-			$current_host = untrailingslashit( wp_parse_url( home_url(), PHP_URL_HOST ) );
-			if ( $host !== $current_host ) {
-				$path      = (string) wp_parse_url( $url, PHP_URL_PATH );
-				$clean_url = "{$scheme}://{$host}{$path}";
-			}
+
+		$redirect_url = new Url( $url );
+		$home_url     = new Url( home_url() );
+
+		$redirect = untrailingslashit( $redirect_url->host . $redirect_url->path );
+		$home     = untrailingslashit( $home_url->host . $home_url->path );
+
+		if ( false === strpos( $home, $redirect ) ) {
+			$clean_url = "{$redirect_url->scheme}://{$redirect_url->host}{$redirect_url->path}";
 		}
 
 		return $clean_url;
