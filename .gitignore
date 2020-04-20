@@ -1,7 +1,2 @@
-# NPM
-node_modules
-
-# SVN
-svn
-
-/vendor/
+/node_modules
+/vendor
