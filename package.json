@@ -1,21 +1,35 @@
 {
-    "name": "simple-website-redirect",
-    "description": "A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.",
-    "author": "Micah Wood <micah@wpscholar.com> (http://wpscholar.com)",
-    "license": "GPL-3.0+",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/wpscholar/simple-website-redirect.git"
-    },
-    "dependencies": {
-        "del": "^3.0.0",
-        "gulp": "^4.0.2",
-        "shelljs": "^0.8.3"
-    },
-    "scripts": {
-        "checkout": "gulp svn:checkout",
-        "post-install": "npm prune",
-        "stage": "gulp svn:stage"
+  "name": "simple-website-redirect",
+  "description": "A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.",
+  "author": "Micah Wood <micah@wpscholar.com> (https://wpscholar.com)",
+  "license": "GPL-3.0+",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wpscholar/simple-website-redirect.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx yamllint **/*.yml",
+    "i18n": "wpi18n addtextdomain && wpi18n makepot"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.5",
+    "node-wp-i18n": "^1.2.3",
+    "yaml-lint": "^1.2.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/*.yml": [
+      "npm run lint"
+    ],
+    "**/*.php": [
+      "composer run-script lint"
+    ]
+  }
 }
