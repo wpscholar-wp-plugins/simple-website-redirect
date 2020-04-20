@@ -13,7 +13,7 @@
  * @package simple-website-redirect
  */
 
-require __DIR__ . '/Url.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use wpscholar\Url;
 
