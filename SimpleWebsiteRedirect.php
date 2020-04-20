@@ -6,9 +6,14 @@
  * Version:     1.2.3
  * Author:      Micah Wood
  * Author URI:  https://wpscholar.com
- * License:     GPL2
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Requires at least: 4.0
+ * Requires PHP: 5.4
  * Text Domain: simple-website-redirect
+ * Domain Path: languages
+ * License: GPL3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Copyright 2018-2020 by Micah Wood - All rights reserved.
  *
  * @package simple-website-redirect
  */
@@ -509,27 +514,27 @@ class SimpleWebsiteRedirect {
 				}
 			</style>
 			<script>
-				jQuery( document ).ready( function ($) {
+				jQuery(document).ready(function ($) {
 					var showText = '<?php echo esc_js( __( 'Show Advanced Settings', 'simple-website-redirect' ) ); ?>';
 					var hideText = '<?php echo esc_js( __( 'Hide Advanced Settings', 'simple-website-redirect' ) ); ?>';
-					var $toggle = $( '<a href="#">' + showText + '</a>' );
-					var $heading = $( '.wrap form h2:nth-of-type(2)' );
+					var $toggle = $('<a href="#">' + showText + '</a>');
+					var $heading = $('.wrap form h2:nth-of-type(2)');
 					var $description = $heading.next();
 					var $table = $description.next();
-					$table.after( $toggle );
+					$table.after($toggle);
 
-					$toggle.click( function (e) {
+					$toggle.click(function (e) {
 						e.preventDefault();
-						toggle( !$heading.is( ':visible' ) );
-					} );
+						toggle(!$heading.is(':visible'));
+					});
 
 					function toggle(show) {
-						$toggle.text( show ? hideText : showText );
-						$heading.toggle( show );
-						$description.toggle( show );
-						$table.toggle( show );
+						$toggle.text(show ? hideText : showText);
+						$heading.toggle(show);
+						$description.toggle(show);
+						$table.toggle(show);
 					}
-				} );
+				});
 			</script>
 		</div>
 		<?php
@@ -571,7 +576,7 @@ class SimpleWebsiteRedirect {
 			esc_attr( $name ),
 			esc_attr( get_option( $name, '' ) ),
 			esc_attr( isset( $args['placeholder'] ) ? $args['placeholder'] : '' ),
-			isset( $args['help_text'] ) ? sprintf( '<p class="description">%s</p>', esc_html( $args['help_text'] ) ) : ''
+			isset( $args['help_text'] ) ? sprintf( '<p class="description">%s</p>', esc_html( $args['help_text'] ) ) : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		);
 	}
 
