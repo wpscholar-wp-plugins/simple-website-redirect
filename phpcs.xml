@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="Project Rules">
+    <rule ref="WPScholar"/>
+    <config name="testVersion" value="5.4-"/>
+    <config name="minimum_supported_wp_version" value="4.0"/>
+    <rule ref="WPScholar">
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax.Found"/>
+    </rule>
+</ruleset>

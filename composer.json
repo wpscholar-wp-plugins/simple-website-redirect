@@ -6,13 +6,21 @@
   "authors": [
     {
       "name": "Micah Wood",
-      "email": "micah@wpscholar.com"
+      "homepage": "https://wpscholar.com"
     }
   ],
-  "config": {
-    "optimize-autoloader": true
-  },
   "require": {
     "wpscholar/url": "^1.1"
+  },
+  "require-dev": {
+    "wpscholar/phpcs-standards-wpscholar": "@stable"
+  },
+  "scripts": {
+    "fix": "vendor/bin/phpcbf . -s",
+    "lint": "vendor/bin/phpcs . -s"
+  },
+  "scripts-descriptions": {
+    "fix": "Automatically fix coding standards issues where possible.",
+    "lint": "Check files against coding standards."
   }
 }
