@@ -521,27 +521,27 @@ class SimpleWebsiteRedirect {
 				}
 			</style>
 			<script>
-              jQuery(document).ready(function ($) {
-                var showText = '<?php echo esc_js( __( 'Show Advanced Settings', 'simple-website-redirect' ) ); ?>';
-                var hideText = '<?php echo esc_js( __( 'Hide Advanced Settings', 'simple-website-redirect' ) ); ?>';
-                var $toggle = $('<a href="#">' + showText + '</a>');
-                var $heading = $('.wrap form h2:nth-of-type(2)');
-                var $description = $heading.next();
-                var $table = $description.next();
-                $table.after($toggle);
+				jQuery(document).ready(function ($) {
+					var showText = '<?php echo esc_js( __( 'Show Advanced Settings', 'simple-website-redirect' ) ); ?>';
+					var hideText = '<?php echo esc_js( __( 'Hide Advanced Settings', 'simple-website-redirect' ) ); ?>';
+					var $toggle = $('<a href="#">' + showText + '</a>');
+					var $heading = $('.wrap form h2:nth-of-type(2)');
+					var $description = $heading.next();
+					var $table = $description.next();
+					$table.after($toggle);
 
-                $toggle.click(function (e) {
-                  e.preventDefault();
-                  toggle(!$heading.is(':visible'));
-                });
+					$toggle.click(function (e) {
+						e.preventDefault();
+						toggle(!$heading.is(':visible'));
+					});
 
-                function toggle(show) {
-                  $toggle.text(show ? hideText : showText);
-                  $heading.toggle(show);
-                  $description.toggle(show);
-                  $table.toggle(show);
-                }
-              });
+					function toggle(show) {
+						$toggle.text(show ? hideText : showText);
+						$heading.toggle(show);
+						$description.toggle(show);
+						$table.toggle(show);
+					}
+				});
 			</script>
 		</div>
 		<?php
