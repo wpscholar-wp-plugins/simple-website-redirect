@@ -201,7 +201,13 @@ class SimpleWebsiteRedirect {
 	 * @return bool
 	 */
 	public static function filter_by_query_params( $should_redirect ) {
-		$excluded_params = apply_filters( 'simple_website_redirect_excluded_query_params', [] );
+		$excluded_params = apply_filters(
+			'simple_website_redirect_excluded_query_params',
+			[
+				'customize_changeset_uuid', // Allows editing via the WordPress Customizer
+				'elementor-preview', // Allows editing via Elementor
+			]
+		);
 		$query_params    = self::$url->getQueryVars();
 		foreach ( $excluded_params as $name => $value ) {
 			if ( array_key_exists( $name, $query_params ) ) {
@@ -231,6 +237,7 @@ class SimpleWebsiteRedirect {
 				'/admin',
 				'/login',
 				'/wp-admin',
+				'/wp-json',
 				'/wp-login.php',
 			],
 			$excluded_paths,
@@ -514,27 +521,27 @@ class SimpleWebsiteRedirect {
 				}
 			</style>
 			<script>
-				jQuery(document).ready(function ($) {
-					var showText = '<?php echo esc_js( __( 'Show Advanced Settings', 'simple-website-redirect' ) ); ?>';
-					var hideText = '<?php echo esc_js( __( 'Hide Advanced Settings', 'simple-website-redirect' ) ); ?>';
-					var $toggle = $('<a href="#">' + showText + '</a>');
-					var $heading = $('.wrap form h2:nth-of-type(2)');
-					var $description = $heading.next();
-					var $table = $description.next();
-					$table.after($toggle);
+              jQuery(document).ready(function ($) {
+                var showText = '<?php echo esc_js( __( 'Show Advanced Settings', 'simple-website-redirect' ) ); ?>';
+                var hideText = '<?php echo esc_js( __( 'Hide Advanced Settings', 'simple-website-redirect' ) ); ?>';
+                var $toggle = $('<a href="#">' + showText + '</a>');
+                var $heading = $('.wrap form h2:nth-of-type(2)');
+                var $description = $heading.next();
+                var $table = $description.next();
+                $table.after($toggle);
 
-					$toggle.click(function (e) {
-						e.preventDefault();
-						toggle(!$heading.is(':visible'));
-					});
+                $toggle.click(function (e) {
+                  e.preventDefault();
+                  toggle(!$heading.is(':visible'));
+                });
 
-					function toggle(show) {
-						$toggle.text(show ? hideText : showText);
-						$heading.toggle(show);
-						$description.toggle(show);
-						$table.toggle(show);
-					}
-				});
+                function toggle(show) {
+                  $toggle.text(show ? hideText : showText);
+                  $heading.toggle(show);
+                  $description.toggle(show);
+                  $table.toggle(show);
+                }
+              });
 			</script>
 		</div>
 		<?php
