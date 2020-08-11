@@ -625,7 +625,7 @@ class SimpleWebsiteRedirect {
 	 *
 	 * @param array $hosts Allowed redirect hosts
 	 *
-	 * @return array
+	 * @return array Allowed redirect hosts
 	 */
 	public static function allowed_redirect_hosts( $hosts ) {
 		$url = get_option( 'simple_website_redirect_url' );
