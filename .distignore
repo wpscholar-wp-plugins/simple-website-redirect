@@ -13,18 +13,14 @@ node_modules
 .gitignore
 composer.json
 composer.lock
-Gruntfile.js
-gulpfile.js
 package.json
 package-lock.json
-phpunit.xml
 phpunit.xml.dist
-readme.md
-README.md
 wp-cli.local.yml
 
 # File Types
 *.log
+*.md
 *.sql
 *.tar.gz
 *.xml
