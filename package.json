@@ -2,34 +2,34 @@
   "name": "simple-website-redirect",
   "description": "A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.",
   "author": "Micah Wood <micah@wpscholar.com> (https://wpscholar.com)",
-  "license": "GPL-3.0+",
+  "license": "GPL-2.0-or-later",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/wpscholar/simple-website-redirect.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "i18n": "wpi18n addtextdomain && wpi18n makepot",
     "lint": "npx yamllint **/*.yml",
-    "i18n": "wpi18n addtextdomain && wpi18n makepot"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "husky": "^4.2.5",
-    "lint-staged": "^10.1.5",
+    "lint-staged": "^10.2.11",
     "node-wp-i18n": "^1.2.3",
     "yaml-lint": "^1.2.4"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npx wpi18n addtextdomain && composer run i18n"
     }
   },
   "lint-staged": {
     "**/*.yml": [
-      "npm run lint"
+      "yamllint --ignore=node_modules/**"
     ],
     "**/*.php": [
-      "composer run-script lint"
+      "vendor/bin/phpcs -s"
     ]
   }
 }
