@@ -1,21 +1,25 @@
 <?php
 /**
- * Plugin Name: Simple Website Redirect
- * Plugin URI:  https://wpscholar.com/wordpress-plugins/simple-website-redirect/
- * Description: A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.
- * Version:     1.2.3
- * Author:      Micah Wood
- * Author URI:  https://wpscholar.com
+ * Simple Website Redirect
+ *
+ * @package           SimpleWebsiteRedirect
+ * @author            Micah Wood
+ * @copyright         Copyright 2018-2020 by Micah Wood - All rights reserved.
+ * @license           GPL2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Simple Website Redirect
+ * Plugin URI:        https://wpscholar.com/wordpress-plugins/simple-website-redirect/
+ * Description:       A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.
+ * Version:           1.2.4
+ * Requires PHP:      5.4
  * Requires at least: 4.0
- * Requires PHP: 5.4
- * Text Domain: simple-website-redirect
- * Domain Path: languages
- * License: GPL3
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- *
- * Copyright 2018-2020 by Micah Wood - All rights reserved.
- *
- * @package simple-website-redirect
+ * Author:            Micah Wood
+ * Author URI:        https://wpscholar.com
+ * Text Domain:       SimpleWebsiteRedirect
+ * Domain Path:       /languages
+ * License:           GPL V2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 require __DIR__ . '/vendor/autoload.php';

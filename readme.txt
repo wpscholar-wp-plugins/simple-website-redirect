@@ -3,11 +3,11 @@ Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
-Tested up to: 5.4
-Stable tag: 1.2.3
+Tested up to: 5.5
+Stable tag: 1.2.4
 Requires PHP: 5.4
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GPL V2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.
 
@@ -57,6 +57,11 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 2. Advanced settings let you configure exclusions to redirects on the front end. Very useful if you still need to use a front-end page builder while redirecting everything else.
 
 == Changelog ==
+
+= 1.2.4 =
+* Don't redirect the REST API
+* Fix to allow use of the customizer without redirecting its contents
+* Fix to allow use of Elementor without redirecting key assets
 
 = 1.2.3 =
 * Bug fix to handle issues when saving without setting a redirect URL.
@@ -110,3 +115,6 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 = 1.2.3 =
 * Bug fix to handle issues when saving without setting a redirect URL.
+
+= 1.2.4 =
+* Now with better compatibility with Elementor and the WordPress customizer!
