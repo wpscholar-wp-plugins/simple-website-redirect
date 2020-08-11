@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
 Tested up to: 5.5
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 Requires PHP: 5.4
 License: GPL V2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,9 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 2. Advanced settings let you configure exclusions to redirects on the front end. Very useful if you still need to use a front-end page builder while redirecting everything else.
 
 == Changelog ==
+
+= 1.2.5 =
+* Fix issue with build where vendor directory wasn't generated.
 
 = 1.2.4 =
 * Don't redirect the REST API
@@ -118,3 +121,6 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 = 1.2.4 =
 * Now with better compatibility with Elementor and the WordPress customizer!
+
+= 1.2.5 =
+* Bugfix for missing vendor directory
