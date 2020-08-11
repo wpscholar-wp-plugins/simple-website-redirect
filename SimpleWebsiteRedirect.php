@@ -16,7 +16,7 @@
  * Requires at least: 4.0
  * Author:            Micah Wood
  * Author URI:        https://wpscholar.com
- * Text Domain:       SimpleWebsiteRedirect
+ * Text Domain:       simple-website-redirect
  * Domain Path:       /languages
  * License:           GPL V2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
