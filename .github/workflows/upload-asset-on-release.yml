@@ -50,9 +50,6 @@ jobs:
       - name: npm install
         run: npm install
 
-      - name: Generate .pot file
-        run: npm run i18n
-
       - name: Validate composer.json and composer.lock
         run: composer validate
 
