@@ -8,9 +8,13 @@
     "type": "git",
     "url": "https://github.com/wpscholar/simple-website-redirect.git"
   },
+  "bugs": {
+    "url": "https://github.com/wpscholar/simple-website-redirect/issues"
+  },
+  "homepage": "https://github.com/wpscholar/simple-website-redirect",
   "scripts": {
-    "i18n": "wpi18n addtextdomain && wpi18n makepot",
-    "lint": "npx yamllint **/*.yml",
+    "i18n": "wpi18n addtextdomain && composer run i18n",
+    "lint": "yamllint --ignore=node_modules/** **/*.yml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
