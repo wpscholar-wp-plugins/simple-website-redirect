@@ -160,7 +160,7 @@ class SimpleWebsiteRedirect {
 			$find     = trailingslashit( $home_url->path );
 			$replace  = '/';
 			$pattern  = '#^' . preg_quote( $find, '/' ) . '#';
-			$path     = preg_replace( $pattern, $replace, trailingslashit( $_SERVER['REQUEST_URI'] ), 1 );
+			$path     = preg_replace( $pattern, $replace, self::maybetrailingslashit( $_SERVER['REQUEST_URI'] ), 1 );
 			$url      = untrailingslashit( $url ) . $path;
 		}
 
@@ -258,6 +258,21 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function filter_excluded_query_params( $excluded_params ) {
 		return array_merge( $excluded_params, self::get_excluded_query_params() );
+	}
+
+	/**
+	 * Check if a trailing slash should be added by checking if the path includes a dot.
+	 *
+	 * @param string $path Path to check if a trailing slash should be added.
+	 *
+	 * @return string
+	 */
+	public static function maybetrailingslashit( $path ) {
+		if ( false === strpos( $path, '.' ) ) {
+			return trailingslashit( $path );
+		}
+
+		return $path;
 	}
 
 	/**
