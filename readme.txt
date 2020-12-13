@@ -3,8 +3,8 @@ Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
-Tested up to: 5.5
-Stable tag: 1.2.5
+Tested up to: 5.6
+Stable tag: 1.2.6
 Requires PHP: 5.4
 License: GPL V2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,10 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 2. Advanced settings let you configure exclusions to redirects on the front end. Very useful if you still need to use a front-end page builder while redirecting everything else.
 
 == Changelog ==
+
+= 1.2.6 =
+* Fix issue where some URLs containing file extensions had a trailing slash added.
+* Added WordPress-Redirect-By header.
 
 = 1.2.5 =
 * Fix issue with build where vendor directory wasn't generated.
@@ -124,3 +128,6 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 = 1.2.5 =
 * Bugfix for missing vendor directory
+
+= 1.2.6 =
+* Minor bugfixes.
