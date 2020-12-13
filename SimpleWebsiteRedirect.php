@@ -75,7 +75,7 @@ class SimpleWebsiteRedirect {
 		if ( self::redirects_are_enabled() && self::should_redirect() ) {
 			$redirect_url = self::get_redirect_url();
 			if ( $redirect_url ) {
-				wp_safe_redirect( $redirect_url, self::get_redirect_type() );
+				wp_safe_redirect( $redirect_url, self::get_redirect_type(), 'Simple Website Redirect' );
 				exit;
 			}
 		}
