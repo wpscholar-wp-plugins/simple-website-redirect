@@ -15,7 +15,7 @@ msgstr ""
 "X-Domain: simple-website-redirect\n"
 
 #. Plugin Name of the plugin
-#: SimpleWebsiteRedirect.php:485
+#: SimpleWebsiteRedirect.php:500
 msgid "Simple Website Redirect"
 msgstr ""
 
@@ -35,91 +35,91 @@ msgstr ""
 msgid "https://wpscholar.com"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:374
-#: SimpleWebsiteRedirect.php:566
+#: SimpleWebsiteRedirect.php:389
+#: SimpleWebsiteRedirect.php:581
 msgid "Settings"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:381
+#: SimpleWebsiteRedirect.php:396
 msgid "Advanced Settings"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:384
+#: SimpleWebsiteRedirect.php:399
 msgid "Use the exclude fields to prevent redirects in certain use cases, such as when using a front-end page builder."
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:392
+#: SimpleWebsiteRedirect.php:407
 msgid "Redirect URL"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:406
+#: SimpleWebsiteRedirect.php:421
 msgid "Redirect Type"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:413
+#: SimpleWebsiteRedirect.php:428
 msgid "Permanent"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:414
+#: SimpleWebsiteRedirect.php:429
 msgid "Temporary"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:416
+#: SimpleWebsiteRedirect.php:431
 msgid "Always set to \"Temporary\" when testing."
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:422
+#: SimpleWebsiteRedirect.php:437
 msgid "Redirect Status"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:429
+#: SimpleWebsiteRedirect.php:444
 msgid "Disabled"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:430
+#: SimpleWebsiteRedirect.php:445
 msgid "Enabled"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:437
+#: SimpleWebsiteRedirect.php:452
 msgid "Exclude Query Parameters"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:444
+#: SimpleWebsiteRedirect.php:459
 msgid "Separate query parameters with commas (e.g. fl_builder, elementor-preview)."
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:450
+#: SimpleWebsiteRedirect.php:465
 msgid "Exclude Paths"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:457
+#: SimpleWebsiteRedirect.php:472
 msgid "Separate paths with commas (e.g. /wp-admin,/wp-login.php)."
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:463
+#: SimpleWebsiteRedirect.php:478
 msgid "Preserve URL Paths"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:470
+#: SimpleWebsiteRedirect.php:485
 msgid "Yes (Recommended)"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:471
+#: SimpleWebsiteRedirect.php:486
 msgid "No (Redirects all pages to the homepage)"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:486
+#: SimpleWebsiteRedirect.php:501
 msgid "Website Redirect"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:511
+#: SimpleWebsiteRedirect.php:526
 msgid "Save Settings"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:529
+#: SimpleWebsiteRedirect.php:544
 msgid "Show Advanced Settings"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:530
+#: SimpleWebsiteRedirect.php:545
 msgid "Hide Advanced Settings"
 msgstr ""
