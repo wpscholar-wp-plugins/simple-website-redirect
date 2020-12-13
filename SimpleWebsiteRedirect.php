@@ -526,19 +526,19 @@ class SimpleWebsiteRedirect {
 				submit_button( esc_html__( 'Save Settings', 'simple-website-redirect' ) );
 				?>
 			</form>
-			<style>
-				.wrap form h2:nth-of-type(2) {
-					display: none;
-				}
+			<style><?php // phpcs:disable ?>
+          .wrap form h2:nth-of-type(2) {
+              display: none;
+          }
 
-				.wrap form h2:nth-of-type(2) + p {
-					display: none;
-				}
+          .wrap form h2:nth-of-type(2) + p {
+              display: none;
+          }
 
-				.wrap form h2:nth-of-type(2) + p + table {
-					display: none;
-				}
-			</style>
+          .wrap form h2:nth-of-type(2) + p + table {
+              display: none;
+          }
+			</style><?php // phpcs:enable ?>
 			<script>
 				jQuery(document).ready(function ($) {
 					var showText = '<?php echo esc_js( __( 'Show Advanced Settings', 'simple-website-redirect' ) ); ?>';
