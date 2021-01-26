@@ -210,6 +210,7 @@ class SimpleWebsiteRedirect {
 			[
 				'customize_changeset_uuid', // Allows editing via the WordPress Customizer
 				'elementor-preview', // Allows editing via Elementor
+				'preview_id', // Allows previewing in WordPress
 			]
 		);
 		$query_params    = self::$url->getQueryVars();
