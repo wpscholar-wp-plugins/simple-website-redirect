@@ -533,17 +533,17 @@ class SimpleWebsiteRedirect {
 				?>
 			</form>
 			<style><?php // phpcs:disable ?>
-          .wrap form h2:nth-of-type(2) {
-              display: none;
-          }
+				.wrap form h2:nth-of-type(2) {
+					display: none;
+				}
 
-          .wrap form h2:nth-of-type(2) + p {
-              display: none;
-          }
+				.wrap form h2:nth-of-type(2) + p {
+					display: none;
+				}
 
-          .wrap form h2:nth-of-type(2) + p + table {
-              display: none;
-          }
+				.wrap form h2:nth-of-type(2) + p + table {
+					display: none;
+				}
 			</style><?php // phpcs:enable ?>
 			<script>
 				jQuery(document).ready(function ($) {
