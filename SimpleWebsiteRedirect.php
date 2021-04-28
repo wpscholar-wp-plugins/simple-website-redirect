@@ -348,13 +348,18 @@ class SimpleWebsiteRedirect {
 
 		if ( $url ) {
 			$redirect_url = new Url( $url );
-			$home_url     = new Url( home_url() );
+			$site_url     = new Url( site_url() );
 
-			$redirect = untrailingslashit( $redirect_url->host . $redirect_url->path );
-			$home     = untrailingslashit( $home_url->host . $home_url->path );
+			$clean_url = "{$redirect_url->scheme}://{$redirect_url->host}{$redirect_url->path}";
 
-			if ( false === strpos( $home, $redirect ) ) {
-				$clean_url = "{$redirect_url->scheme}://{$redirect_url->host}{$redirect_url->path}";
+			// If the redirect URL is contained within the site URL, issue a warning.
+			if ( is_admin() && false !== strpos( $site_url->host, $redirect_url->host ) ) {
+				add_settings_error(
+					'simple_website_redirect_url',
+					'simple_website_redirect_url',
+					__( 'WARNING! You appear to have entered a redirect URL that may point back to the current site and cause an infinite redirect loop. Be sure to review your settings and test with the redirect type set to "Temporary" to avoid accidentally locking yourself out of your website.', 'simple-website-redirect' ),
+					'error'
+				);
 			}
 		}
 
