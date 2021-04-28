@@ -11,7 +11,7 @@
  * Plugin Name:       Simple Website Redirect
  * Plugin URI:        https://wpscholar.com/wordpress-plugins/simple-website-redirect/
  * Description:       A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.
- * Version:           1.2.6
+ * Version:           1.2.7
  * Requires PHP:      5.4
  * Requires at least: 4.0
  * Author:            Micah Wood
@@ -34,7 +34,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Plugin version
 	 */
-	const VERSION = '1.2.6';
+	const VERSION = '1.2.7';
 
 	/**
 	 * Plugin admin menu page slug.
