@@ -77,7 +77,7 @@ class SimpleWebsiteRedirect {
 	 * Primary functionality - handles website redirect based on current configuration.
 	 */
 	public static function init() {
-		if ( self::redirects_are_enabled() && self::should_redirect() ) {
+		if ( self::redirects_are_enabled() && self::should_redirect() && php_sapi_name() !== 'cli' ) {
 			$redirect_url = self::get_redirect_url();
 			if ( $redirect_url ) {
 				wp_safe_redirect( $redirect_url, self::get_redirect_type(), 'Simple Website Redirect ' . self::VERSION );
