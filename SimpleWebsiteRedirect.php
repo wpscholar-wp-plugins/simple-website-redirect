@@ -101,6 +101,12 @@ class SimpleWebsiteRedirect {
 	 * @return bool
 	 */
 	public static function should_redirect() {
+
+		// Don't redirect if running WP-CLI commands!
+		if ( defined( 'WP_CLI' ) ) {
+			return false;
+		}
+
 		global $pagenow;
 		$should_redirect = 'wp-login.php' !== $pagenow && ! is_admin();
 
