@@ -3,8 +3,8 @@ Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.0
-Tested up to: 5.6
-Stable tag: 1.2.7
+Tested up to: 5.8
+Stable tag: 1.2.8
 Requires PHP: 5.4
 License: GPL V2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,9 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 2. Advanced settings let you configure exclusions to redirects on the front end. Very useful if you still need to use a front-end page builder while redirecting everything else.
 
 == Changelog ==
+
+= 1.2.8 =
+* Fix issue where redirects were preventing WP-CLI commands from running properly.
 
 = 1.2.7 =
 * Allow saving any redirect URL value, but provide a warning to the user if redirecting to the same domain.
@@ -138,3 +141,6 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 
 = 1.2.7 =
 * Minor bugfixes.
+
+= 1.2.8 =
+* Fixes issue where redirects were preventing WP-CLI commands from running properly.
