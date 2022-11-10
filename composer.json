@@ -31,5 +31,10 @@
     "fix": "Automatically fix coding standards issues where possible.",
     "i18n": "Generate a .pot file for translation.",
     "lint": "Check files against coding standards."
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
