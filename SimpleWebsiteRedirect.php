@@ -179,6 +179,12 @@ class SimpleWebsiteRedirect {
 					)
 				);
 			}
+
+			$query = $current_url->query;
+			if ( ! empty( $query ) ) {
+				$redirect_url->query = $query;
+			}
+
 			$url = $redirect_url->toString();
 		}
 
