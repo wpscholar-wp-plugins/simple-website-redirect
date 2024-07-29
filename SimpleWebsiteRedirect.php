@@ -180,10 +180,7 @@ class SimpleWebsiteRedirect {
 				);
 			}
 
-			$query = $current_url->query;
-			if ( ! empty( $query ) ) {
-				$redirect_url->query = $query;
-			}
+			$redirect_url->query = $current_url->query;
 
 			$url = $redirect_url->toString();
 		}
