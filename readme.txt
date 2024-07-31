@@ -5,7 +5,7 @@ Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.7
 Tested up to: 6.6
 Stable tag: 1.2.9
-Requires PHP: 5.4
+Requires PHP: 7.4
 License: GPL V2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
