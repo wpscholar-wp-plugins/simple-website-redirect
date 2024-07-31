@@ -9,11 +9,11 @@ Requires PHP: 5.4
 License: GPL V2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.
+A simple plugin designed to redirect an entire website (except the WordPress backend) to another website.
 
 == Description ==
 
-The **Simple Website Redirect** plugin allows to you redirect an entire website (except the WordPress admin) to another website.
+The **Simple Website Redirect** plugin allows to you redirect an entire website (except the WordPress backend) to another website.
 
 The URL path and query string is preserved when redirecting to the new site. Ideally, the new site would handle any one-off redirects where a URL for an old page should point to a new page. The [Redirection](https://wordpress.org/plugins/redirection/) plugin is great for this purpose.
 
