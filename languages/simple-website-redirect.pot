@@ -1,8 +1,8 @@
-# Copyright (C) 2021 Micah Wood
+# Copyright (C) 2024 Micah Wood
 # This file is distributed under the GPL V2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Website Redirect 1.2.8\n"
+"Project-Id-Version: Simple Website Redirect 1.2.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simple-website-redirect\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,27 +11,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: simple-website-redirect\n"
 
 #. Plugin Name of the plugin
-#: SimpleWebsiteRedirect.php:509
+#: SimpleWebsiteRedirect.php
+#: SimpleWebsiteRedirect.php:508
 msgid "Simple Website Redirect"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: SimpleWebsiteRedirect.php
 msgid "https://wpscholar.com/wordpress-plugins/simple-website-redirect/"
 msgstr ""
 
 #. Description of the plugin
+#: SimpleWebsiteRedirect.php
 msgid "A simple plugin designed to redirect an entire website (except the WordPress admin) to another website."
 msgstr ""
 
 #. Author of the plugin
+#: SimpleWebsiteRedirect.php
 msgid "Micah Wood"
 msgstr ""
 
 #. Author URI of the plugin
+#: SimpleWebsiteRedirect.php
 msgid "https://wpscholar.com"
 msgstr ""
 
@@ -40,7 +45,7 @@ msgid "WARNING! You appear to have entered a redirect URL that may point back to
 msgstr ""
 
 #: SimpleWebsiteRedirect.php:398
-#: SimpleWebsiteRedirect.php:590
+#: SimpleWebsiteRedirect.php:589
 msgid "Settings"
 msgstr ""
 
@@ -112,18 +117,18 @@ msgstr ""
 msgid "No (Redirects all pages to the homepage)"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:510
+#: SimpleWebsiteRedirect.php:509
 msgid "Website Redirect"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:535
+#: SimpleWebsiteRedirect.php:534
 msgid "Save Settings"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:553
+#: SimpleWebsiteRedirect.php:552
 msgid "Show Advanced Settings"
 msgstr ""
 
-#: SimpleWebsiteRedirect.php:554
+#: SimpleWebsiteRedirect.php:553
 msgid "Hide Advanced Settings"
 msgstr ""
