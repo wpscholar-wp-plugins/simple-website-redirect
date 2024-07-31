@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "wpscholar/url": "^1.1"
+    "wpscholar/url": "^1.1",
+    "wp-cli/entity-command": "^2.7"
   },
   "require-dev": {
     "wpscholar/phpcs-standards-wpscholar": "@stable",
