@@ -15,18 +15,14 @@
   "scripts": {
     "i18n": "wpi18n addtextdomain && composer run i18n",
     "lint": "yamllint --ignore=node_modules/** **/*.yml",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "husky": "^4.3.6",
-    "lint-staged": "^10.5.3",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
     "node-wp-i18n": "^1.2.3",
     "yaml-lint": "^1.2.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npx wpi18n addtextdomain && composer run i18n"
-    }
   },
   "lint-staged": {
     "**/*.yml": [

@@ -1,0 +1,1 @@
+lint-staged && npx wpi18n addtextdomain && composer run i18n
