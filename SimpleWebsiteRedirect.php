@@ -4,14 +4,14 @@
  *
  * @package           SimpleWebsiteRedirect
  * @author            Micah Wood
- * @copyright         Copyright 2018-2020 by Micah Wood - All rights reserved.
+ * @copyright         Copyright 2018-2024 by Micah Wood - All rights reserved.
  * @license           GPL2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       Simple Website Redirect
  * Plugin URI:        https://wpscholar.com/wordpress-plugins/simple-website-redirect/
  * Description:       A simple plugin designed to redirect an entire website (except the WordPress admin) to another website.
- * Version:           1.2.8
+ * Version:           1.2.9
  * Requires PHP:      5.4
  * Requires at least: 4.0
  * Author:            Micah Wood
@@ -34,7 +34,7 @@ class SimpleWebsiteRedirect {
 	/**
 	 * Plugin version
 	 */
-	const VERSION = '1.2.8';
+	const VERSION = '1.2.9';
 
 	/**
 	 * Plugin admin menu page slug.
@@ -64,11 +64,11 @@ class SimpleWebsiteRedirect {
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 99 );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, 'plugin_action_links' ) );
 
-		add_filter( 'simple_website_redirect_url', [ __CLASS__, 'filter_redirect_url' ] );
-		add_filter( 'simple_website_redirect_should_redirect', [ __CLASS__, 'filter_by_path' ] );
-		add_filter( 'simple_website_redirect_should_redirect', [ __CLASS__, 'filter_by_query_params' ] );
-		add_filter( 'simple_website_redirect_excluded_paths', [ __CLASS__, 'filter_excluded_paths' ] );
-		add_filter( 'simple_website_redirect_excluded_query_params', [ __CLASS__, 'filter_excluded_query_params' ] );
+		add_filter( 'simple_website_redirect_url', array( __CLASS__, 'filter_redirect_url' ) );
+		add_filter( 'simple_website_redirect_should_redirect', array( __CLASS__, 'filter_by_path' ) );
+		add_filter( 'simple_website_redirect_should_redirect', array( __CLASS__, 'filter_by_query_params' ) );
+		add_filter( 'simple_website_redirect_excluded_paths', array( __CLASS__, 'filter_excluded_paths' ) );
+		add_filter( 'simple_website_redirect_excluded_query_params', array( __CLASS__, 'filter_excluded_query_params' ) );
 
 		add_filter( 'allowed_redirect_hosts', array( __CLASS__, 'allowed_redirect_hosts' ) );
 	}
@@ -193,14 +193,14 @@ class SimpleWebsiteRedirect {
 	 * @return bool
 	 */
 	public static function filter_by_path( $should_redirect ) {
-		$excluded_paths = apply_filters( 'simple_website_redirect_excluded_paths', [] );
+		$excluded_paths = apply_filters( 'simple_website_redirect_excluded_paths', array() );
 		foreach ( $excluded_paths as $excluded_path ) {
 			if ( 0 === strpos( self::$url->path, $excluded_path ) ) {
 				$matches           = 0;
 				$excluded_segments = array_filter( explode( '/', $excluded_path ) );
 				foreach ( $excluded_segments as $index => $segment ) {
 					if ( self::$url->getSegment( $index - 1 ) === $segment ) {
-						$matches ++;
+						++$matches;
 					} else {
 						break;
 					}
@@ -225,11 +225,11 @@ class SimpleWebsiteRedirect {
 	public static function filter_by_query_params( $should_redirect ) {
 		$excluded_params = apply_filters(
 			'simple_website_redirect_excluded_query_params',
-			[
+			array(
 				'customize_changeset_uuid', // Allows editing via the WordPress Customizer
 				'elementor-preview', // Allows editing via Elementor
 				'preview_id', // Allows previewing in WordPress
-			]
+			)
 		);
 		$query_params    = self::$url->getQueryVars();
 		foreach ( $excluded_params as $name => $value ) {
@@ -256,13 +256,13 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function filter_excluded_paths( $excluded_paths ) {
 		return array_merge(
-			[
+			array(
 				'/admin',
 				'/login',
 				'/wp-admin',
 				'/wp-json',
 				'/wp-login.php',
-			],
+			),
 			$excluded_paths,
 			self::get_excluded_paths()
 		);
@@ -287,7 +287,7 @@ class SimpleWebsiteRedirect {
 	 * @return array
 	 */
 	public static function parse_query_params( $query_params ) {
-		$params = [];
+		$params = array();
 		$pairs  = is_array( $query_params ) ? $query_params : array_filter( explode( ',', $query_params ) );
 		foreach ( $pairs as $pair ) {
 			$parts           = explode( '=', $pair, 2 );
@@ -307,12 +307,12 @@ class SimpleWebsiteRedirect {
 	 * @return string
 	 */
 	public static function sanitize_query_params( $value ) {
-		$params = [];
+		$params = array();
 		if ( ! empty( $value ) ) {
 			$parsed = self::parse_query_params( $value );
 			$clean  = array_combine(
-				array_map( [ __CLASS__, 'sanitize_query_param' ], array_keys( $parsed ) ),
-				array_map( [ __CLASS__, 'sanitize_query_param' ], array_values( $parsed ) )
+				array_map( array( __CLASS__, 'sanitize_query_param' ), array_keys( $parsed ) ),
+				array_map( array( __CLASS__, 'sanitize_query_param' ), array_values( $parsed ) )
 			);
 
 			foreach ( $clean as $k => $v ) {
@@ -380,14 +380,14 @@ class SimpleWebsiteRedirect {
 	 */
 	public static function admin_init() {
 
-		$settings = [
-			'simple_website_redirect_url'                  => [ __CLASS__, 'sanitize_redirect_url' ],
-			'simple_website_redirect_type'                 => [ __CLASS__, 'sanitize_redirect_type' ],
+		$settings = array(
+			'simple_website_redirect_url'                  => array( __CLASS__, 'sanitize_redirect_url' ),
+			'simple_website_redirect_type'                 => array( __CLASS__, 'sanitize_redirect_type' ),
 			'simple_website_redirect_status'               => 'wp_validate_boolean',
 			'simple_website_redirect_to_root'              => 'wp_validate_boolean',
 			'simple_website_redirect_exclude_paths'        => 'sanitize_text_field',
-			'simple_website_redirect_exclude_query_params' => [ __CLASS__, 'sanitize_query_params' ],
-		];
+			'simple_website_redirect_exclude_query_params' => array( __CLASS__, 'sanitize_query_params' ),
+		);
 
 		foreach ( $settings as $option_name => $sanitize_callback ) {
 			register_setting( self::PAGE, $option_name, $sanitize_callback );
@@ -417,12 +417,12 @@ class SimpleWebsiteRedirect {
 			array( __CLASS__, 'input_field' ),
 			self::PAGE,
 			'settings',
-			[
+			array(
 				'name'        => 'simple_website_redirect_url',
 				'type'        => 'url',
 				'class'       => 'regular-text',
 				'placeholder' => 'https://',
-			]
+			)
 		);
 
 		add_settings_field(
@@ -431,14 +431,14 @@ class SimpleWebsiteRedirect {
 			array( __CLASS__, 'select_field' ),
 			self::PAGE,
 			'settings',
-			[
+			array(
 				'name'      => 'simple_website_redirect_type',
 				'options'   => array(
 					301 => __( 'Permanent', 'simple-website-redirect' ),
 					302 => __( 'Temporary', 'simple-website-redirect' ),
 				),
 				'help_text' => __( 'Always set to "Temporary" when testing.', 'simple-website-redirect' ),
-			]
+			)
 		);
 
 		add_settings_field(
@@ -447,13 +447,13 @@ class SimpleWebsiteRedirect {
 			array( __CLASS__, 'select_field' ),
 			self::PAGE,
 			'settings',
-			[
+			array(
 				'name'    => 'simple_website_redirect_status',
 				'options' => array(
 					0 => __( 'Disabled', 'simple-website-redirect' ),
 					1 => __( 'Enabled', 'simple-website-redirect' ),
 				),
-			]
+			)
 		);
 
 		add_settings_field(
@@ -462,11 +462,11 @@ class SimpleWebsiteRedirect {
 			array( __CLASS__, 'input_field' ),
 			self::PAGE,
 			'advanced-settings',
-			[
+			array(
 				'name'      => 'simple_website_redirect_exclude_query_params',
 				'class'     => 'regular-text',
 				'help_text' => esc_html__( 'Separate query parameters with commas (e.g. fl_builder, elementor-preview).', 'simple-website-redirect' ),
-			]
+			)
 		);
 
 		add_settings_field(
@@ -475,11 +475,11 @@ class SimpleWebsiteRedirect {
 			array( __CLASS__, 'input_field' ),
 			self::PAGE,
 			'advanced-settings',
-			[
+			array(
 				'name'      => 'simple_website_redirect_exclude_paths',
 				'class'     => 'regular-text',
 				'help_text' => __( 'Separate paths with commas (e.g. /wp-admin,/wp-login.php).', 'simple-website-redirect' ),
-			]
+			)
 		);
 
 		add_settings_field(
@@ -488,15 +488,14 @@ class SimpleWebsiteRedirect {
 			array( __CLASS__, 'select_field' ),
 			self::PAGE,
 			'advanced-settings',
-			[
+			array(
 				'name'    => 'simple_website_redirect_to_root',
 				'options' => array(
 					0 => esc_html__( 'Yes (Recommended)', 'simple-website-redirect' ),
 					1 => esc_html__( 'No (Redirects all pages to the homepage)', 'simple-website-redirect' ),
 				),
-			]
+			)
 		);
-
 	}
 
 	/**
@@ -623,7 +622,7 @@ class SimpleWebsiteRedirect {
 	public static function select_field( array $args ) {
 
 		$name    = isset( $args['name'] ) ? $args['name'] : '';
-		$options = isset( $args['options'] ) ? (array) $args['options'] : [];
+		$options = isset( $args['options'] ) ? (array) $args['options'] : array();
 		$value   = get_option( $name, '' );
 
 		echo sprintf( '<select name="%s">', esc_attr( $name ) ) . PHP_EOL;
@@ -659,7 +658,6 @@ class SimpleWebsiteRedirect {
 
 		return $hosts;
 	}
-
 }
 
 SimpleWebsiteRedirect::initialize();
