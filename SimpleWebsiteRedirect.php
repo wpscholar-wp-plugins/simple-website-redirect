@@ -252,7 +252,7 @@ class SimpleWebsiteRedirect {
 	 *
 	 * @return array
 	 */
-	public static function filter_excluded_paths( $excluded_paths ) {
+	public static function filter_excluded_paths( array $excluded_paths ) {
 		return array_merge(
 			array(
 				'/admin',
