@@ -1,6 +1,6 @@
 # Simple Website Redirect
 
-![Deploy to WordPress.org](https://github.com/wpscholar-wp-plugins/simple-website-redirect/workflows/Deploy%20to%20WordPress.org/badge.svg?branch=master&event=push)
+![Deploy to WordPress.org](https://github.com/wpscholar-wp-plugins/simple-website-redirect/workflows/Deploy%20to%20WordPress.org/badge.svg?branch=main&event=push)
 
 ## Description
 The **Simple Website Redirect** plugin allows to you redirect an entire website (except the WordPress admin) to another website.

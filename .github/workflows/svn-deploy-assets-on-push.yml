@@ -2,13 +2,13 @@ name: Plugin asset/readme update
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - .wporg/*
       - readme.txt
 jobs:
-  master:
-    name: Push to master
+  push:
+    name: Push to main branch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

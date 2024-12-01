@@ -3,11 +3,11 @@ name: Build Plugin
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
-    name: On Push to Master
+    name: On Push to Main
     runs-on: ubuntu-latest
     steps:
 
