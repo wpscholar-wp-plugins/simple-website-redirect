@@ -658,4 +658,4 @@ class SimpleWebsiteRedirect {
 	}
 }
 
-SimpleWebsiteRedirect::initialize();
+add_action( 'plugins_loaded', array( 'SimpleWebsiteRedirect', 'initialize' ) );
