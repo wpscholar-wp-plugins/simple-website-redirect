@@ -59,7 +59,7 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 == Changelog ==
 
 = 1.3.0 =
-* Fix issue where query params wheren't properly being checked.
+* Fix issue where query params weren't properly being checked.
 * Allow all REST API calls to work without being redirected (allows WP editor and other page builders to work in the admin area).
 
 = 1.2.9 =
