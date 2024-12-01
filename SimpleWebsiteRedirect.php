@@ -235,15 +235,10 @@ class SimpleWebsiteRedirect {
 			)
 		);
 		$query_params    = self::$url->getQueryVars();
-		foreach ( $excluded_params as $name => $value ) {
+		foreach ( $excluded_params as $name ) {
 			if ( array_key_exists( $name, $query_params ) ) {
-				if ( empty( $value ) ) {
-					$should_redirect = false;
-					break;
-				} elseif ( $query_params[ $name ] === $value ) {
-					$should_redirect = false;
-					break;
-				}
+				$should_redirect = false;
+				break;
 			}
 		}
 
