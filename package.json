@@ -13,23 +13,10 @@
   },
   "homepage": "https://github.com/wpscholar/simple-website-redirect",
   "scripts": {
-    "i18n": "wpi18n addtextdomain && composer run i18n",
     "lint": "yamllint --ignore=node_modules/** **/*.yml",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
-    "node-wp-i18n": "^1.2.3",
     "yaml-lint": "^1.2.4"
-  },
-  "lint-staged": {
-    "**/*.yml": [
-      "yamllint --ignore=node_modules/**"
-    ],
-    "**/*.php": [
-      "vendor/bin/phpcs -s"
-    ]
   }
 }
