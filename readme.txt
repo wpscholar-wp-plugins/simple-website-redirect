@@ -3,7 +3,7 @@ Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
 Tags: site, website, redirect, redirection, forward, forwarding
 Requires at least: 4.7
-Tested up to: 6.6
+Tested up to: 6.7
 Stable tag: 1.2.9
 Requires PHP: 7.4
 License: GPL V2 or later
