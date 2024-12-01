@@ -1,7 +1,7 @@
 === Simple Website Redirect ===
 Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar
-Tags: site, website, redirect, redirection, forward, forwarding
+Tags: website, redirect, redirection, forward, forwarding
 Requires at least: 4.7
 Tested up to: 6.7
 Stable tag: 1.2.9
