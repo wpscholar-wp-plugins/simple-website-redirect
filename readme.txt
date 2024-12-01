@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/wpscholar
 Tags: website, redirect, redirection, forward, forwarding
 Requires at least: 4.7
 Tested up to: 6.7
-Stable tag: 1.2.9
+Stable tag: 1.3.0
 Requires PHP: 7.4
 License: GPL V2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
