@@ -141,7 +141,7 @@ class SimpleWebsiteRedirect {
 	}
 
 	/**
-	 * Get a collection of excluded paths.
+	 * Get excluded paths as provided by the user.
 	 *
 	 * @return array
 	 */
@@ -150,7 +150,7 @@ class SimpleWebsiteRedirect {
 	}
 
 	/**
-	 * Get a collection of excluded query parameters.
+	 * Get excluded query parameters as provided by the user.
 	 *
 	 * @return array
 	 */
