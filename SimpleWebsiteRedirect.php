@@ -155,7 +155,7 @@ class SimpleWebsiteRedirect {
 	 * @return array
 	 */
 	public static function get_excluded_query_params() {
-		return self::parse_query_params( get_option( 'simple_website_redirect_exclude_query_params', '' ) . ',simple-website-redirect' );
+		return self::parse_query_params( get_option( 'simple_website_redirect_exclude_query_params', '' ) . ',page=simple-website-redirect' );
 	}
 
 	/**
@@ -229,17 +229,22 @@ class SimpleWebsiteRedirect {
 		$excluded_params = apply_filters(
 			'simple_website_redirect_excluded_query_params',
 			array(
-				'customize_changeset_uuid', // Allows editing via the WordPress Customizer
-				'elementor-preview', // Allows editing via Elementor
-				'preview_id', // Allows previewing in WordPress
-				'rest_route', // Allows REST API requests
+				'customize_changeset_uuid' => null, // Allows editing via the WordPress Customizer
+				'elementor-preview'        => null, // Allows editing via Elementor
+				'preview_id'               => null, // Allows previewing in WordPress
+				'rest_route'               => null, // Allows REST API requests
 			)
 		);
 		$query_params    = self::$url->getQueryVars();
-		foreach ( $excluded_params as $name ) {
+		foreach ( $excluded_params as $name => $value ) {
 			if ( array_key_exists( $name, $query_params ) ) {
-				$should_redirect = false;
-				break;
+				if ( empty( $value ) ) {
+					$should_redirect = false;
+					break;
+				} elseif ( $value === $query_params[ $name ] ) {
+					$should_redirect = false;
+					break;
+				}
 			}
 		}
 
@@ -294,7 +299,7 @@ class SimpleWebsiteRedirect {
 			$value           = array_shift( $parts );
 			$params[ $name ] = $value;
 		}
-
+		
 		return $params;
 	}
 
