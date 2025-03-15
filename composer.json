@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=7.4",
-    "wpscholar/url": "^1.2.3"
+    "wpscholar/url": "^1.2.5"
   },
   "require-dev": {
     "wpscholar/phpcs-standards-wpscholar": "@stable",

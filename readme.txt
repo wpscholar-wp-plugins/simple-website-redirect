@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/wpscholar
 Tags: website, redirect, redirection, forward, forwarding
 Requires at least: 4.7
 Tested up to: 6.7
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 7.4
 License: GPL V2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,9 @@ If you don't meet the below requirements, I highly recommend you upgrade your Wo
 2. Advanced settings let you configure exclusions to redirects on the front end. Very useful if you still need to use a front-end page builder while redirecting everything else.
 
 == Changelog ==
+
+= 1.3.2 =
+* Add wp-cron.php to the exclude path.
 
 = 1.3.1 =
 * Fix logic for supporting query param exclusion.
